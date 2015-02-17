@@ -4,30 +4,27 @@ import java.util.Collections;
 
 public class TaxPark{
     private ArrayList<Car> taxPark = new ArrayList<Car>(0);
-    private int carCount;
-    private int totalCostValue;
-
 
     public void addCar(Car car){
         taxPark.add(car);
-        carCount++;
-        totalCostValue = totalCostValue + car.getPriceCost();
     }
 
     public void removeCar(Car car){
         if (taxPark.contains(car)){
             taxPark.remove(car);
-            carCount--;
-            totalCostValue = totalCostValue - car.getPriceCost();
         }
     }
 
-    public int getTotalCostValue(){
-        return this.totalCostValue;
+    public int getCarCount(){
+        return this.taxPark.size();
     }
 
-    public int getCarCount(){
-        return this.carCount;
+    public int getTotalCostValue(){
+        int amount = 0;
+        for (Car x : this.taxPark){
+            amount = amount + x.getPriceCost();
+        }
+        return amount;
     }
 
     public void findCars (int speed){
