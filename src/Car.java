@@ -1,5 +1,5 @@
 /**
- * Created by Admin on 17.02.15.
+ * Created by Pavel on 17.02.15.
  */
 
 public class Car implements Comparable<Car>{
