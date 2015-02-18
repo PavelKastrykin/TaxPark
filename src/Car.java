@@ -1,6 +1,3 @@
-/**
- * Created by Pavel on 17.02.15.
- */
 
 public class Car implements Comparable<Car>{
     private String brand;
@@ -8,6 +5,7 @@ public class Car implements Comparable<Car>{
     private int priceCost;
     private CarClass carClass;
     private double fuelConsumption;
+
     public Car(String brand, int maxSpeed, double fuelConsumption, int priceCost, CarClass carClass){
         this.brand = brand;
         this.maxSpeed = maxSpeed;
