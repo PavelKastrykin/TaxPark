@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class TaxPark{
+public class TaxPark {
     private ArrayList<Car> taxPark = new ArrayList<Car>(0);
 
     public void addCar(Car car){
