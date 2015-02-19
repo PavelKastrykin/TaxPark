@@ -1,0 +1,13 @@
+Index: src/CarClass.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/CarClass.java	(date 1424247348000)
++++ src/CarClass.java	(revision )
+@@ -1,4 +1,4 @@
+-public enum  CarClass
++public enum CarClass
+ {
+     A, B, C, D, E, F;
+ }
