@@ -3,15 +3,13 @@ public class Car implements Comparable<Car>{
     private String brand;
     private int maxSpeed;
     private int priceCost;
-    private CarClass carClass;
     private double fuelConsumption;
 
-    public Car(String brand, int maxSpeed, double fuelConsumption, int priceCost, CarClass carClass){
+    public Car (String brand, int maxSpeed, double fuelConsumption, int priceCost){
         this.brand = brand;
         this.maxSpeed = maxSpeed;
         this.fuelConsumption = fuelConsumption;
         this.priceCost = priceCost;
-        this.carClass = carClass;
     }
 
     public int getPriceCost(){
@@ -46,13 +44,14 @@ public class Car implements Comparable<Car>{
         else {
             Car x = (Car)obj;
             return (x.brand.equals(this.brand) && x.maxSpeed == this.maxSpeed &&
-                    x.priceCost == this.priceCost && x.carClass == this.carClass);
+                    x.priceCost == this.priceCost);
         }
 
     }
 
     @Override
     public String toString() {
-        return brand + " " + carClass + " " + priceCost + " " + maxSpeed + " " + fuelConsumption;
+        return "Марка: " + brand + ", стоимость:  " + priceCost + ", Макс. скорость:  " + maxSpeed
+                + ", средний расход:  " + fuelConsumption;
     }
 }

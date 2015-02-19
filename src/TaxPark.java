@@ -1,8 +1,5 @@
-﻿﻿import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Collections;
-
-//ПРивет
-
 
 public class TaxPark{
     private ArrayList<Car> taxPark = new ArrayList<Car>(0);
@@ -60,10 +57,10 @@ public class TaxPark{
 
     public static void main(String[] args){
         TaxPark taxPark1 = new TaxPark();
-        taxPark1.addCar(new Car("Toyota", 150, 6.3, 12000, CarClass.C));
-        taxPark1.addCar(new Car("Mercedes", 200, 11.4, 17000, CarClass.E));
-        taxPark1.addCar(new Car("Honda", 180, 7.5, 11000, CarClass.D));
-        taxPark1.addCar(new Car("Toyota", 150, 6.3, 12000, CarClass.C));
+        taxPark1.addCar(new Car("Toyota", 150, 6.3, 12000));
+        taxPark1.addCar(new Car("Mercedes", 200, 11.4, 17000));
+        taxPark1.addCar(new Car("Honda", 180, 7.5, 11000));
+        taxPark1.addCar(new Car("Toyota", 150, 6.3, 12000));
         taxPark1.printTaxPark();
         System.out.println();
 
@@ -79,7 +76,7 @@ public class TaxPark{
         taxPark1.printTaxPark();
         System.out.println();
 
-        taxPark1.removeCar(new Car("Toyota", 150, 6.3, 12000, CarClass.C));
+        taxPark1.removeCar(new Car("Toyota", 150, 6.3, 12000));
         taxPark1.printTaxPark();
         System.out.println();
 
