@@ -100,7 +100,13 @@ public class Car implements Comparable<Car>{
 
     @Override
     public String toString() {
-        return "Марка: " + brand + ", стоимость:  " + priceCost + ", Макс. скорость:  " + maxSpeed
-                + ", средний расход:  " + fuelConsumption;
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getName());
+        sb.append(" Марка: ").append(brand);
+        sb.append(", стоимость:  ").append(priceCost);
+        sb.append(", Макс. скорость:  ").append(maxSpeed);
+        sb.append(", средний расход:  ").append(fuelConsumption);
+        return sb.toString();
     }
 }
+
