@@ -1,9 +1,13 @@
+/**
+ * The Car class represents data type that describes abstract car. The instance of Car is created
+ * by usage of CarBuilder class.
+ */
 
 public class Car implements Comparable<Car>{
-    protected final String brand;
-    protected final int maxSpeed;
-    protected final int priceCost;
-    protected final double fuelConsumption;
+    private final String brand;
+    private final int maxSpeed;
+    private final int priceCost;
+    private final double fuelConsumption;
 
     protected Car (CarBuilder builder){
         this.brand = builder.brand;
