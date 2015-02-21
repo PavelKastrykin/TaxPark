@@ -1,3 +1,7 @@
+package com.pavel.automanager.entity.baseclass;
+
+import com.pavel.automanager.builder.CarBuilder;
+
 /**
  * The Car class represents data type that describes abstract car. The instance of Car is created
  * by usage of CarBuilder class.
@@ -9,41 +13,11 @@ public class Car implements Comparable<Car>{
     private final int priceCost;
     private final double fuelConsumption;
 
-    protected Car (CarBuilder builder){
-        this.brand = builder.brand;
-        this.maxSpeed = builder.maxSpeed;
-        this.fuelConsumption = builder.fuelConsumption;
-        this.priceCost = builder.priceCost;
-    }
-
-    public static class CarBuilder{
-        protected final String brand;
-        protected int maxSpeed = 0;
-        protected int priceCost = 0;
-        protected double fuelConsumption = 0;
-
-        public CarBuilder(String brand) {
-            this.brand = brand;
-        }
-
-        public CarBuilder maxSpeed(int value){
-            maxSpeed = value;
-            return this;
-        }
-
-        public CarBuilder fuelConsumption(double value){
-            fuelConsumption = value;
-            return this;
-        }
-
-        public CarBuilder priceCost(int value){
-            priceCost = value;
-            return this;
-        }
-
-        public Car build(){
-            return new Car(this);
-        }
+    public Car(String brand, int maxSpeed, int priceCost, double fuelConsumption){
+        this.brand = brand;
+        this.maxSpeed = maxSpeed;
+        this.priceCost = priceCost;
+        this.fuelConsumption = fuelConsumption;
     }
 
     public int getPriceCost(){

@@ -1,29 +1,13 @@
+package com.pavel.automanager.entity.subclass;
+
+import com.pavel.automanager.entity.baseclass.*;
 
 public class PassengerCar extends Car{
     private final int passengerSeatsQuantity;
 
-    private PassengerCar (PassengerCarBuilder builder){
-        super(builder);
-        this.passengerSeatsQuantity = builder.passengerSeatsQuantity;
-    }
-
-    public static class PassengerCarBuilder extends CarBuilder{
-
-        private int passengerSeatsQuantity = 0;
-        
-        public PassengerCarBuilder(String brand) {
-            super(brand);
-        }
-
-        public PassengerCarBuilder passengerSeatsQuantity(int value){
-            passengerSeatsQuantity = value;
-            return this;
-        }
-
-        public PassengerCar build(){
-            return new PassengerCar(this);
-        }
-
+    public PassengerCar (String brand, int maxSpeed, int priceCost, double fuelConsumption, int passengerSeatsQuantity){
+        super(brand, maxSpeed, priceCost, fuelConsumption);
+        this.passengerSeatsQuantity = passengerSeatsQuantity;
     }
 
     public int getPassengerSeatsQty(){

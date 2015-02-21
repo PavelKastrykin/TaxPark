@@ -1,6 +1,9 @@
+package com.pavel.automanager.logic;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import com.pavel.automanager.entity.baseclass.*;
 
 /**
  * Class TaxPark realises logic of car managing in an abstract taxi park.
@@ -12,7 +15,6 @@ import java.util.List;
 public class TaxPark{
     /** List of cars that taxi park contains*/
     private List<Car> taxPark = new ArrayList<Car>();
-
     /**
      * Method to add single car or array of cars
      * @param car
@@ -60,25 +62,18 @@ public class TaxPark{
     }
 
     /**
-     * Prints to console cars that suit given speed parameter
+     * Returns List of cars that suit given speed parameter
      * @param speed
      *        speed value
      */
-    public void findCars (int speed){
-        if (speed <= 0){
-            System.out.println("Ничего не найдено");
-            System.out.println();
-            return;
-        }
-        ArrayList<Car> foundCars = new ArrayList<Car>();
-        for (Car x : this.taxPark){
+    public List<Car> findCars (int speed){
+        List<Car> foundCars = new ArrayList<Car>();
+        for (Car x : taxPark){
             if (x.getMaxSpeed() >= speed){
                 foundCars.add(x);
             }
         }
-        for (Car x : foundCars){
-            System.out.println(x);
-        }
+        return foundCars;
     }
 
     @Override
@@ -98,7 +93,7 @@ public class TaxPark{
     }
 
     /**
-     * Method that makes ascending sort of cars in the taxi park according their fuel consumption
+     * Method that makes ascending sort of cars in the taxi park according to their fuel consumption
      */
     public void sortByFuelConsumption(){
         Collections.sort(this.taxPark);
