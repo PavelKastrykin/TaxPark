@@ -7,12 +7,12 @@ import com.pavel.automanager.logic.TaxPark;
 public class MainApplication {
 
     public static void main(String[] args){
-        Car car = new CarBuilder("Toyota").setPriceCost(1000).setFuelConsumption(3.2).setMaxSpeed(200).build();
-        Car car1 = new CarBuilder("Mercedes").setPriceCost(2000).setFuelConsumption(5.2).setMaxSpeed(210).build();
-        Car car2 = ((PassengerCarBuilder)(new PassengerCarBuilder("Honda").setFuelConsumption(6.4)))
-                    .setPassengerSeatsQuantity(4).build();
-        Car car3 = ((TruckBuilder)(new TruckBuilder("MAN").setPriceCost(1000).setFuelConsumption(20).setMaxSpeed(100)))
-                    .setLoadCapacity(200).build();
+        Car car = new CarBuilder().setBrand("Toyota").setPriceCost(1000).setFuelConsumption(3.2).setMaxSpeed(200).build();
+        Car car1 = new CarBuilder(). setBrand("Mercedes").setPriceCost(2000).setFuelConsumption(5.2).setMaxSpeed(210).build();
+        Car car2 = new PassengerCarBuilder().setBrand("Honda").setFuelConsumption(6.4).setPriceCost(3500)
+                .setPassengerSeatsQuantity(4).build();
+        Car car3 = new TruckBuilder().setBrand("MAN").setPriceCost(1000).setFuelConsumption(20).setMaxSpeed(100)
+                .setLoadCapacity(200).build();
         TaxPark taxPark = new TaxPark();
         taxPark.addCar(car, car1, car2, car3);
         System.out.println(taxPark);

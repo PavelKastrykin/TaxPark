@@ -1,16 +1,25 @@
 package com.pavel.automanager.entity.subclass;
 
-import com.pavel.automanager.entity.baseclass.*;
+import com.pavel.automanager.entity.baseclass.Car;
 
+/**
+ * The subclass of Car base-class. Widens base-class with a field a field "load capacity".
+ */
 public class Truck extends Car{
-    private final int loadCapacity;
+    private int loadCapacity;
+
+    public Truck(){};
 
     public Truck (String brand, int maxSpeed, int priceCost, double fuelConsumption, int loadCapacity){
         super(brand, maxSpeed, priceCost, fuelConsumption);
         this.loadCapacity = loadCapacity;
     }
-    public int getCapacity(){
+    public int getLoadCapacity(){
         return this.loadCapacity;
+    }
+
+    public void setLoadCapacity(int value){
+        this.loadCapacity = value;
     }
 
     @Override

@@ -1,17 +1,20 @@
 package com.pavel.automanager.entity.baseclass;
 
-import com.pavel.automanager.builder.CarBuilder;
-
 /**
- * The Car class represents data type that describes abstract car. The instance of Car is created
- * by usage of CarBuilder class.
+ * The Car class represents data type that describes abstract car. The instance can be created with a paramrtric constructor,
+ * and non-parametric constructor and list of getters/setters gives an ability to set instance values while in
+ * process or by means of builder.
+ *
+ * Has overridden methods equals(), hashCode(), toString() and compareTo().
  */
 
 public class Car implements Comparable<Car>{
-    private final String brand;
-    private final int maxSpeed;
-    private final int priceCost;
-    private final double fuelConsumption;
+    private String brand;
+    private int maxSpeed;
+    private int priceCost;
+    private double fuelConsumption;
+
+    public Car(){};
 
     public Car(String brand, int maxSpeed, int priceCost, double fuelConsumption){
         this.brand = brand;
@@ -20,16 +23,36 @@ public class Car implements Comparable<Car>{
         this.fuelConsumption = fuelConsumption;
     }
 
+    public String getBrand(){
+        return this.brand;
+    }
+
+    public void setBrand(String value){
+        this.brand = value;
+    }
+
     public int getPriceCost(){
         return this.priceCost;
+    }
+
+    public void setPriceCost(int value){
+        this.priceCost = value;
     }
 
     public double getFuelConsumption() {
         return fuelConsumption;
     }
 
+    public void setFuelConsumption(double value){
+        this.fuelConsumption = value;
+    }
+
     public int getMaxSpeed(){
         return this.maxSpeed;
+    }
+
+    public void setMaxSpeed(int value){
+        this.maxSpeed = value;
     }
 
     @Override
@@ -72,6 +95,11 @@ public class Car implements Comparable<Car>{
         return result;
     }
 
+    /**
+     *
+     * @return String representation getClass().getName() + " Марка: " + brand + ", стоимость:  " + priceCost +
+     * ", Макс. скорость:  " + maxSpeed + ", средний расход:  " + fuelConsumption
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

@@ -2,16 +2,25 @@ package com.pavel.automanager.entity.subclass;
 
 import com.pavel.automanager.entity.baseclass.*;
 
+/**
+ * The subclass of Car base-class. Widens base-class with a field a field "passenger seats quantity".
+ */
 public class PassengerCar extends Car{
-    private final int passengerSeatsQuantity;
+    private int passengerSeatsQuantity;
+
+    public PassengerCar(){};
 
     public PassengerCar (String brand, int maxSpeed, int priceCost, double fuelConsumption, int passengerSeatsQuantity){
         super(brand, maxSpeed, priceCost, fuelConsumption);
         this.passengerSeatsQuantity = passengerSeatsQuantity;
     }
 
-    public int getPassengerSeatsQty(){
+    public int getPassengerSeatsQantity(){
         return this.passengerSeatsQuantity;
+    }
+
+    public void setPassengerSeatsQuantity(int value){
+        this.passengerSeatsQuantity = value;
     }
 
     @Override

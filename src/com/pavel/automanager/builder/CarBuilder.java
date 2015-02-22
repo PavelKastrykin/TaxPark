@@ -2,35 +2,11 @@ package com.pavel.automanager.builder;
 
 import com.pavel.automanager.entity.baseclass.Car;
 
-public class CarBuilder {
-    protected Car car;
+public class CarBuilder extends AbstractCarBuilder<Car, CarBuilder>{
 
-    protected String brand;
-    protected int maxSpeed;
-    protected int priceCost;
-    protected double fuelConsumption;
-
-    public CarBuilder(String brand){
-        this.brand = brand;
+    @Override
+    protected Car create(){
+        return new Car();
     }
 
-    public CarBuilder setMaxSpeed(int value){
-        this.maxSpeed = value;
-        return this;
-    }
-
-    public CarBuilder setPriceCost(int value){
-        this.priceCost = value;
-        return this;
-    }
-
-    public CarBuilder setFuelConsumption (double value){
-        this.fuelConsumption = value;
-        return this;
-    }
-
-    public Car build(){
-        this.car = new Car(brand, maxSpeed, priceCost, fuelConsumption);
-        return car;
-    }
 }
