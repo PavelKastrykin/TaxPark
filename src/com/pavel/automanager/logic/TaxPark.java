@@ -1,9 +1,11 @@
 package com.pavel.automanager.logic;
 
+import com.pavel.automanager.entity.baseclass.Car;
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import com.pavel.automanager.entity.baseclass.*;
 
 /**
  * Class TaxPark realises logic of car managing in an abstract taxi park.
@@ -20,6 +22,9 @@ public class TaxPark{
      * @param car
      *        A Car or array of them to be added
      */
+
+    Logger logger = Logger.getLogger(TaxPark.class);
+
     public void addCar(Car... car){
         for (Car x : car) {
             taxPark.add(x);
@@ -34,6 +39,9 @@ public class TaxPark{
     public void removeCar(Car car){
         if (taxPark.contains(car)){
             taxPark.remove(car);
+        }
+        else{
+            logger.info("Item not found");
         }
     }
 
@@ -73,6 +81,9 @@ public class TaxPark{
                 foundCars.add(x);
             }
         }
+        if (foundCars.size() == 0){
+            logger.info("Cars are not found");
+        }
         return foundCars;
     }
 
@@ -95,7 +106,10 @@ public class TaxPark{
     /**
      * Method that makes ascending sort of cars in the taxi park according to their fuel consumption
      */
-    public void sortByFuelConsumption(){
+    public void sortByFuelConsumption() throws Exception{
+        if (taxPark.size() == 0){
+            throw new Exception("TaxPark is empty");
+        }
         Collections.sort(this.taxPark);
     }
 }
