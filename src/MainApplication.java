@@ -3,8 +3,11 @@ import com.pavel.automanager.builder.PassengerCarBuilder;
 import com.pavel.automanager.builder.TruckBuilder;
 import com.pavel.automanager.entity.baseclass.Car;
 import com.pavel.automanager.logic.TaxPark;
+import org.apache.log4j.Logger;
 
 public class MainApplication {
+
+    final static Logger logger = Logger.getLogger(MainApplication.class);
 
     public static void main(String[] args){
         Car car = new CarBuilder().setBrand("Toyota").setPriceCost(1000).setFuelConsumption(3.2).setMaxSpeed(200).build();
@@ -14,11 +17,23 @@ public class MainApplication {
         Car car3 = new TruckBuilder().setBrand("MAN").setPriceCost(1000).setFuelConsumption(20).setMaxSpeed(100)
                 .setLoadCapacity(200).build();
         TaxPark taxPark = new TaxPark();
+        try {
+            taxPark.sortByFuelConsumption();
+        }
+        catch (Exception e){
+            logger.error(e.getMessage());
+        }
         taxPark.addCar(car, car1, car2, car3);
         System.out.println(taxPark);
 
         System.out.println("Sort by fuel consumption");
-        taxPark.sortByFuelConsumption();
+        try{
+            taxPark.sortByFuelConsumption();
+        }
+        catch (Exception e){
+            logger.error(e.getMessage());
+        }
+
         System.out.println(taxPark);
 
         System.out.println("Cars with speed over 150");
