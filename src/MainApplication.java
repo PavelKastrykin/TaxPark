@@ -40,3 +40,26 @@ public class MainApplication {
         System.out.println(taxPark.findCars(150));
     }
 }
+
+class Manager{
+
+    public Resonse execute(String commandName, Request request){
+
+        switch(commandName){
+            case "add":
+                TaxiParkLogic.addCar(reqiust.getMark(), request.getSpeed());
+                break;
+
+
+        }
+
+
+    }
+
+}
+
+class Request{
+    String mark;
+
+    int speed;
+}
