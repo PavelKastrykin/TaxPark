@@ -1,4 +1,4 @@
-package com.pavel.automanager.entity.baseclass;
+package com.pavel.automanager.entity;
 
 /**
  * The Car class represents data type that describes abstract car. The instance can be created with a paramrtric constructor,
@@ -104,10 +104,10 @@ public class Car implements Comparable<Car>{
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getName());
-        sb.append(" Марка: ").append(brand);
-        sb.append(", стоимость:  ").append(priceCost);
-        sb.append(", Макс. скорость:  ").append(maxSpeed);
-        sb.append(", средний расход:  ").append(fuelConsumption);
+        sb.append(" Brand: ").append(brand);
+        sb.append(", total cost:  ").append(priceCost);
+        sb.append(", maximum speed:  ").append(maxSpeed);
+        sb.append(", fuel consumption:  ").append(fuelConsumption);
         return sb.toString();
     }
 }

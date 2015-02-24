@@ -1,6 +1,4 @@
-package com.pavel.automanager.entity.subclass;
-
-import com.pavel.automanager.entity.baseclass.*;
+package com.pavel.automanager.entity;
 
 /**
  * The subclass of Car base-class. Widens base-class with a field a field "passenger seats quantity".
@@ -25,7 +23,7 @@ public class PassengerCar extends Car{
 
     @Override
     public String toString(){
-        return super.toString() + ", количество мест: " + passengerSeatsQuantity;
+        return super.toString() + ", quantity of seats: " + passengerSeatsQuantity;
     }
 
     @Override

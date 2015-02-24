@@ -1,6 +1,6 @@
 package com.pavel.automanager.builder;
 
-import com.pavel.automanager.entity.subclass.PassengerCar;
+import com.pavel.automanager.entity.PassengerCar;
 
 public class PassengerCarBuilder extends AbstractCarBuilder<PassengerCar, PassengerCarBuilder>{
 

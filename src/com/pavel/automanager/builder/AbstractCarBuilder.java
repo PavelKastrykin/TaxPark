@@ -1,6 +1,6 @@
 package com.pavel.automanager.builder;
 
-import com.pavel.automanager.entity.baseclass.Car;
+import com.pavel.automanager.entity.Car;
 
 /**
  * An abstract class, realisation of Builder-pattern for Car class and its subclasses. Contains all methods to initialize

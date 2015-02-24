@@ -1,7 +1,7 @@
 package com.pavel.automanager.builder;
 
 
-import com.pavel.automanager.entity.subclass.Truck;
+import com.pavel.automanager.entity.Truck;
 
 public class TruckBuilder extends AbstractCarBuilder<Truck, TruckBuilder>{
     private int loadCapacity;

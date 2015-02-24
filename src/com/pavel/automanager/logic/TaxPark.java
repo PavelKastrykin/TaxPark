@@ -1,6 +1,6 @@
 package com.pavel.automanager.logic;
 
-import com.pavel.automanager.entity.baseclass.Car;
+import com.pavel.automanager.entity.Car;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -14,21 +14,37 @@ import java.util.List;
  * To manage cars, methods of adding, removing, sorting and finding are provided
  * Initialized with a default constructor
  */
-public class TaxPark{
+public class TaxPark {
+
+    /**
+     * Name os the taxi park
+     */
+    private String taxParkName;
     /** List of cars that taxi park contains*/
-    private List<Car> taxPark = new ArrayList<Car>();
+    private List<Car> carContainer = new ArrayList<Car>();
     /**
      * Method to add single car or array of cars
      * @param car
      *        A Car or array of them to be added
      */
 
-    Logger logger = Logger.getLogger(TaxPark.class);
+    final static Logger logger = Logger.getLogger(TaxPark.class);
 
+    public TaxPark(String name){
+        this.taxParkName = name;
+    }
     public void addCar(Car... car){
         for (Car x : car) {
-            taxPark.add(x);
+            carContainer.add(x);
         }
+    }
+
+    public String getTaxParkName() {
+        return taxParkName;
+    }
+
+    public void setTaxParkName(String taxParkName) {
+        this.taxParkName = taxParkName;
     }
 
     /**
@@ -37,8 +53,8 @@ public class TaxPark{
      *        A car to be removed
      */
     public void removeCar(Car car){
-        if (taxPark.contains(car)){
-            taxPark.remove(car);
+        if (carContainer.contains(car)){
+            carContainer.remove(car);
         }
         else{
             logger.info("Item not found");
@@ -50,11 +66,11 @@ public class TaxPark{
      * @return  an ArrayList of Car
      */
     public List<Car> getCars(){
-        return taxPark;
+        return carContainer;
     }
 
     public int getCarCount(){
-        return this.taxPark.size();
+        return this.carContainer.size();
     }
 
     /**
@@ -63,7 +79,7 @@ public class TaxPark{
      */
     public int getTotalCostValue(){
         int amount = 0;
-        for (Car x : this.taxPark){
+        for (Car x : this.carContainer){
             amount = amount + x.getPriceCost();
         }
         return amount;
@@ -76,7 +92,7 @@ public class TaxPark{
      */
     public List<Car> findCars (int speed){
         List<Car> foundCars = new ArrayList<Car>();
-        for (Car x : taxPark){
+        for (Car x : carContainer){
             if (x.getMaxSpeed() >= speed){
                 foundCars.add(x);
             }
@@ -90,14 +106,14 @@ public class TaxPark{
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        for (Car x : this.taxPark){
+        for (Car x : this.carContainer){
             sb.append(x.toString());
             sb.append("\n");
         }
-        sb.append("Всего машин: ");
+        sb.append("Total cars: ");
         sb.append(getCarCount());
         sb.append("\n");
-        sb.append("Общей стоимостью: ");
+        sb.append("Total park cost: ");
         sb.append(getTotalCostValue());
         sb.append("\n");
         return sb.toString();
@@ -107,9 +123,29 @@ public class TaxPark{
      * Method that makes ascending sort of cars in the taxi park according to their fuel consumption
      */
     public void sortByFuelConsumption() throws Exception{
-        if (taxPark.size() == 0){
+        if (carContainer.size() == 0){
             throw new Exception("TaxPark is empty");
         }
-        Collections.sort(this.taxPark);
+        Collections.sort(this.carContainer);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TaxPark)) return false;
+
+        TaxPark taxParkLogic = (TaxPark) o;
+
+        if (!carContainer.equals(taxParkLogic.carContainer)) return false;
+        if (!taxParkName.equals(taxParkLogic.taxParkName)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = taxParkName.hashCode();
+        result = 31 * result + carContainer.hashCode();
+        return result;
     }
 }
