@@ -1,9 +1,9 @@
 Действия команд из класса Commands.
 
 ADD_TAXPARK_OR_CAR:
-   taxPark = "" - не создавать, записать в логгер "No Taxi Park name, Taxi Park was not created"
+   taxPark = "" - не создавать, записать в логгер "No Taxi Park name"
    taxPark = "someName", carName = ""
-           - если someName существует в списке парков, записать в логгер "No Car Name, no Car added"
+           - если someName существует в списке парков, записать в логгер "No Car Name"
            - если someName отсутствует, создать Taxi Park "someName", записать в логгер "Taxi Park someName created, no Car added"
    taxPark = "someName", carName = "someCar"
            - если someName уже существует, внести в него Car с указанными параметрами
@@ -18,4 +18,15 @@ REMOVE_CAR:
                 - если есть - удалить
                 - если нет, записать в логгер "Car was not found, no Car removed"
 
+SORT_BY_FUEL_CONSUMPTION:
+    taxPark = "" - вывести в логгер "Taxi Park was not specified"
+    taxPark = "someName"
+            - если someName существует в списке - сортировать его машины по потреблению топлива
+            - если someName отсутствует в списке - вывести в логгер "No such TaxiPark"
+
+GET_CARS_WITH_SPEED_LIMIT
+    taxPark = "" - вывести в логгер "Taxi Park was not specified"
+    taxPark = "someName"
+            - если someName существует в списке - вызвать метод для данного Taxi Park с указанным параметром
+            - если someName отсутствует в списке - вывести в логгер "No such TaxiPark"
 

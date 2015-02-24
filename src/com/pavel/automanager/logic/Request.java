@@ -1,9 +1,7 @@
 package com.pavel.automanager.logic;
 
-import java.text.ParseException;
-
 public class Request {
-    private String taxParkName;
+    private String taxiParkName;
     private CarType carType;
     private String carName;
     private int maxSpeed = 0;
@@ -22,7 +20,7 @@ public class Request {
         String[] requestStringToArray = requestString.split(";");
         switch (requestString.length()){
             case 8:
-                this.setTaxParkName(requestStringToArray[0]);
+                this.setTaxiParkName(requestStringToArray[0]);
                 this.setCarType(CarType.valueOf(requestStringToArray[1]));
                 this.setCarName(requestStringToArray[2]);
                 this.setMaxSpeed(Integer.parseInt(requestStringToArray[3]));
@@ -32,18 +30,18 @@ public class Request {
                 this.setLoadCapacity(Integer.parseInt(requestStringToArray[7]));
                 break;
             case 2:
-                this.setTaxParkName(requestStringToArray[0]);
+                this.setTaxiParkName(requestStringToArray[0]);
                 this.setMaxSpeed(Integer.parseInt(requestStringToArray[1]));
                 break;
             case 1:
-                this.setTaxParkName(requestStringToArray[0]);
+                this.setTaxiParkName(requestStringToArray[0]);
                 break;
         }
 
     }
 
-    public String getTaxParkName() {
-        return taxParkName;
+    public String getTaxiParkName() {
+        return taxiParkName;
     }
     public CarType getCarType() {
         return carType;
@@ -67,8 +65,8 @@ public class Request {
         return loadCapacity;
     }
 
-    public void setTaxParkName(String taxParkName) {
-        this.taxParkName = taxParkName;
+    public void setTaxiParkName(String taxiParkName) {
+        this.taxiParkName = taxiParkName;
     }
 
     public void setCarType(CarType carType) {

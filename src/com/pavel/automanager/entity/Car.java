@@ -97,8 +97,8 @@ public class Car implements Comparable<Car>{
 
     /**
      *
-     * @return String representation getClass().getName() + " Марка: " + brand + ", стоимость:  " + priceCost +
-     * ", Макс. скорость:  " + maxSpeed + ", средний расход:  " + fuelConsumption
+     * @return String representation getClass().getName() + " Brand: " + brand + ", total cost:  " + priceCost +
+     * ", maximum speed:  " + maxSpeed + ", fuel consumption:  " + fuelConsumption
      */
     @Override
     public String toString() {

@@ -1,7 +1,7 @@
 package com.pavel.automanager.entity;
 
 /**
- * The subclass of Car base-class. Widens base-class with a field a field "load capacity".
+ * The subclass of Car base-class. Widens base-class with a field "load capacity".
  */
 public class Truck extends Car{
     private int loadCapacity;

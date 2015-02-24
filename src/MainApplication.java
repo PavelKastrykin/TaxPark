@@ -5,7 +5,6 @@ public class MainApplication {
     final static Logger logger = Logger.getLogger(MainApplication.class);
 
     public static void main(String[] args){
-
     }
 }
 
