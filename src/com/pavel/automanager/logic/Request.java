@@ -1,5 +1,13 @@
 package com.pavel.automanager.logic;
 
+/**
+ * Class for string requests parsing. Receives request of this kind:
+ *
+ * taxiParkName;carType;carName;maxSpeed;priceCost;fuelConsumption;passengerSeatsQuantity;loadCapacity
+ * (delimiter is ';')
+ *
+ *  - and creates request object that bases on it
+ */
 public class Request {
     private String taxiParkName;
     private CarType carType;
@@ -18,7 +26,7 @@ public class Request {
 
     public Request(String requestString){
         String[] requestStringToArray = requestString.split(";");
-        switch (requestString.length()){
+        switch (requestStringToArray.length){
             case 8:
                 this.setTaxiParkName(requestStringToArray[0]);
                 this.setCarType(CarType.valueOf(requestStringToArray[1]));

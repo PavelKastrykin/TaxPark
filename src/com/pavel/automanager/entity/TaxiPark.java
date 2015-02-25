@@ -3,6 +3,10 @@ package com.pavel.automanager.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Representation of a Taxi Park. Accumulates Cars in ArrayList collection? contains methods of getting total Taxi Park
+ * cost and String representation.
+ */
 public class TaxiPark {
 
     private String taxiParkName;
@@ -28,6 +32,10 @@ public class TaxiPark {
         this.carContainer = carContainer;
     }
 
+    /**
+     * Method that returns total cost value of Taxi Park
+     * @return sum of all price costs of cars
+     */
     private int getTotalCostValue(){
         int totalCost = 0;
         for (Car x : carContainer){
@@ -36,6 +44,10 @@ public class TaxiPark {
         return  totalCost;
     }
 
+    /**
+     * String representation of Taxi Park
+     * @return "Total cars: " + string representation of every sinle car + quantity of cars + total park cost
+     */
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
