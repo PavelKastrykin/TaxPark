@@ -1,4 +1,4 @@
-package com.pavel.automanager.builder;
+package com.pavel.automanager.logic.builder;
 
 import com.pavel.automanager.entity.Car;
 

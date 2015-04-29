@@ -1,4 +1,4 @@
-package com.pavel.automanager.logic;
+package com.pavel.automanager.entity;
 
 /**
  * Class for string requests parsing. Receives request of this kind:
@@ -8,7 +8,7 @@ package com.pavel.automanager.logic;
  *
  *  - and creates request object that bases on it
  */
-public class Request {
+public class BuilderRequest {
     private String taxiParkName;
     private CarType carType;
     private String carName;
@@ -24,7 +24,7 @@ public class Request {
         TRUCK
     }
 
-    public Request(String requestString){
+    public BuilderRequest(String requestString){
         String[] requestStringToArray = requestString.split(";");
         switch (requestStringToArray.length){
             case 8:

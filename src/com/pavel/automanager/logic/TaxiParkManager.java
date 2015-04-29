@@ -1,8 +1,9 @@
 package com.pavel.automanager.logic;
 
-import com.pavel.automanager.builder.CarBuilder;
-import com.pavel.automanager.builder.PassengerCarBuilder;
-import com.pavel.automanager.builder.TruckBuilder;
+import com.pavel.automanager.logic.builder.CarBuilder;
+import com.pavel.automanager.logic.builder.PassengerCarBuilder;
+import com.pavel.automanager.logic.builder.TruckBuilder;
+import com.pavel.automanager.entity.BuilderRequest;
 import com.pavel.automanager.entity.Car;
 import com.pavel.automanager.entity.TaxiPark;
 import org.apache.log4j.Logger;
@@ -13,7 +14,7 @@ import java.util.List;
  * Class that manages Taxi Parks and Cars, stored in them, by receiving commands and requests.
  * Contains storage of Taxi Parks, uses logics of TaxiParkLogic Class to manage single Taxi Park
  */
-public class Manager {
+public class TaxiParkManager {
 
     private TaxiParkLogic taxiParkLogic = new TaxiParkLogic();
     private List<TaxiPark> taxiParkContainer = new ArrayList<TaxiPark>();
@@ -23,7 +24,7 @@ public class Manager {
      */
     private String foundCars;
 
-    public static final Logger logger = Logger.getLogger(Manager.class);
+    public static final Logger logger = Logger.getLogger(TaxiParkManager.class);
 
     public String getFoundCars() {
         return foundCars;
@@ -47,7 +48,7 @@ public class Manager {
      * @param command receives command from enum Commands
      * @param request receives object of Request Class
      */
-    public void execute(Commands command, Request request){
+    public void execute(CommandTypes command, BuilderRequest request){
 
         switch (command){
             case ADD_TAXIPARK_OR_CAR:
@@ -138,7 +139,7 @@ public class Manager {
         }
     }
 
-    private boolean taxiParkIsValid(Request request){
+    private boolean taxiParkIsValid(BuilderRequest request){
         if ("".equals(request.getTaxiParkName())){
             logger.info("No Taxi Park name");
             return false;
@@ -146,7 +147,7 @@ public class Manager {
         return true;
     }
 
-    private boolean carIsValid(Request request) {
+    private boolean carIsValid(BuilderRequest request) {
         if ("".equals(request.getCarName())) {
             logger.info("No Car name");
             return false;
@@ -154,7 +155,7 @@ public class Manager {
         return true;
     }
 
-    private boolean taxiParkIsExist(Request request){
+    private boolean taxiParkIsExist(BuilderRequest request){
         for (TaxiPark x : taxiParkContainer){
             if (x.getTaxiParkName().equals(request.getTaxiParkName())){
                 return true;
@@ -163,7 +164,7 @@ public class Manager {
         return false;
     }
 
-    private Car carCreate(Request request) {
+    private Car carCreate(BuilderRequest request) {
         switch (request.getCarType()){
             case CAR:
                 return new CarBuilder().setBrand(request.getCarName()).setMaxSpeed(request.getMaxSpeed())
@@ -182,7 +183,7 @@ public class Manager {
 
         return null;
     }
-    private TaxiPark taxiParkCreate(Request request){
+    private TaxiPark taxiParkCreate(BuilderRequest request){
         return new TaxiPark(request.getTaxiParkName());
     }
 

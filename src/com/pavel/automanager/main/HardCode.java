@@ -1,3 +1,5 @@
+package com.pavel.automanager.main;
+
 /**
  * Pre-created requests for project debugging
  */
